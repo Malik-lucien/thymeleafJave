@@ -13,12 +13,12 @@
     <table border="1">
         <tr>
             <th>id </th>
-            <th>nom</th>
+            <th>name</th>
             <th>type</th>
         </tr>
         <tr th:each ="person : ${persons}">
             <td th:utext="${person.id}">...</td>
-            <td th:utext="${person.nom}">...</td>
+            <td th:utext="${person.name}">...</td>
             <td th:utext="${person.type}">...</td>
         </tr>
     </table>

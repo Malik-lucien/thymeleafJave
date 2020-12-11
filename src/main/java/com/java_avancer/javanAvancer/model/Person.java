@@ -2,16 +2,16 @@ package com.java_avancer.javanAvancer.model;
 
 public class Person {
     private int id;
-    private String nom;
+    private String name;
     private String type;
 
     public Person() {
 
     }
 
-    public Person(int id, String nom, String type) {
+    public Person(int id, String name, String type) {
         this.id = id;
-        this.nom = nom;
+        this.name = name;
         this.type = type;
     }
 
@@ -23,12 +23,12 @@ public class Person {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
+    public String getName() {
+        return name;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getType() {

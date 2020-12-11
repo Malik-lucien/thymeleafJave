@@ -2,7 +2,7 @@ package com.java_avancer.javanAvancer.form;
 
 public class PersonForm {
     private int id;
-    private String nom;
+    private String name;
     private String type;
 
     public int getId() {
@@ -13,12 +13,12 @@ public class PersonForm {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
+    public String getName() {
+        return name;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getType() {

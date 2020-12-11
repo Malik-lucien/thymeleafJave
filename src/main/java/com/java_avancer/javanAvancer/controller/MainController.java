@@ -9,11 +9,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 @Controller
 public class MainController {
 
     private static final List<Person> persons = new ArrayList<Person>();
+
 
     static {
         persons.add(new Person(1, "notoriouss", "warrior"));
@@ -38,8 +40,11 @@ public class MainController {
 
     @GetMapping(value = "/personList")
     public String personList(Model model) {
-        model.addAttribute("persons", persons);
-        System.out.println("toto");
+        RestTemplate restTemplate = new RestTemplate();
+        Person[] person = restTemplate.getForObject("http://localhost:8081/players", Person[].class);
+        //cree obj rest templ + apel api app de droite + passer resultat a add attribut
+        model.addAttribute("persons", person);
+//        System.out.println("toto");
         return "personList";
     }
 
@@ -56,7 +61,7 @@ public class MainController {
     public String savePerson(Model model, @ModelAttribute("personForm") PersonForm personForm) {
 
         int id = personForm.getId();
-        String nom = personForm.getNom();
+        String nom = personForm.getName();
         String type = personForm.getType();
 
         if (nom != null && nom.length() > 0 //
@@ -70,5 +75,6 @@ public class MainController {
         model.addAttribute("errorMessage", errorMessage);
         return "addPerson";
     }
+
 
 }
